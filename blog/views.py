@@ -1,17 +1,37 @@
-from blog.forms import Contacto
+
 from blog.models import Post
 from django.shortcuts import render
 from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView, FormView,
+    ListView, DetailView, CreateView, UpdateView,
     DeleteView
 )
 from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+from .forms import ContactForm
+from django.core.mail import send_mail, get_connection
 
+def contact(request):
+    submitted = False
+    if request.method=='POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            #assert False 
+            send_mail(
+                cd['tema'],
+                cd['cuerpo'],
+                cd.get('email', 'noreply@example.com'),
+                ['pieroramirez810@gmail.com'],
+                connection=get_connection('django.core.mail.backends.console.EmailBackend')
+            )
+            return HttpResponseRedirect('/contact?submitted=True')
+    else:
+        form = ContactForm()
+        if 'submitted' in request.GET:
+            submitted=True
 
-class ContactView(FormView):
-    form_class = Contacto
-    initial = {'key': 'value'}
-    template_name= 'contact.html'
+    return render(request, 'contact.html', {'form': form, 'submitted': submitted})
+
 
 
 class BlogListView(ListView):

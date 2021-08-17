@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" class="text-gray-1800 leading-tight">
+<head>
+    <style>
+        p label, p input, p textarea {
+            display: block;
+            margin: auto;
+            padding-bottom: 1rem;
+            
+        }
+        p input, p textarea {
+            border-color: rgb(16, 35, 206);
+            border-width: 0 .1rem .1rem 0;
+            width: 90%;
+            margin-bottom: 1rem;
+        }
+        p label{text-align: center;}
+        input{width: 100%;}
+        form li{color: red;}
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" href="{% url 'home' %}">Blog de Piero</a>
+    </header>
+    {% block content %}
+    {% endblock content %}
+</body>
+</html>

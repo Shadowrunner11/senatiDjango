@@ -1,4 +1,4 @@
-from blog.views import BlogDeleteView, BlogDetailView, BlogListView, BlogCreateView, BlogUpdateView, ContactView
+from blog.views import BlogDeleteView, BlogDetailView, BlogListView, BlogCreateView, BlogUpdateView, contact
 from django.urls import path
 
 urlpatterns=[
@@ -7,6 +7,6 @@ urlpatterns=[
     path('post/new/',BlogCreateView.as_view(), name='post_new'),
     path('post/<int:pk>/edit/', BlogUpdateView.as_view(), name='post_edit' ),
     path('post/<int:pk>/delete/', BlogDeleteView.as_view(), name="post_delete"),
-    path('contact/',ContactView.as_view(), name='contact'),
+    path('contact/',contact, name='contact'),
     
 ]
