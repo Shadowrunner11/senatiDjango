@@ -6,9 +6,11 @@ label, input {display: block;}
 form p {margin: auto; width: 25rem;}
 .btn{display: inline;}
 
-div.hola{color: red;display:grid;}
+.flex-container{display:flex; flex-direction: row; flex-wrap:wrap ;}
 
+@media only screen and (max-width: 600px){
+    .flex-container{flex-direction: column;}
+}
 
-
-footer.container-fluid{text-align: center; background-color: rgb(92, 92, 53); margin-top: 2rem;}
+footer.container-fluid{text-align: center; background-color: beige; margin-top: 2rem;}
 
