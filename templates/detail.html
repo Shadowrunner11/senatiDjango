@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="container p-3 my-3 bg-dark text-white">
+<h2>{{object.titulo}}</h2>
+<p>{{object.autor}}</p>
+<p>{{object.cuerpo}}</p>
+{% ifequal user.id object.autor.id%}
+<a class="btn btn-primary" href="{% url 'post_edit' post.pk %}">Editar entrada</a>
+<a class="btn btn-warning" href="{% url 'post_delete' post.pk %}">Borrar post</a>
+{% endifequal %}
+</div>
+
+
+
+
+{% endblock content %}

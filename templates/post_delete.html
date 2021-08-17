@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Delete post</h1>
+<form action="" method="post">{% csrf_token %}
+<p style="text-align: center;">Estas seguro que quieres borrar "{{ object.titulo }}"?</p>
+<input style="margin:auto; display: block;" class="btn btn-danger" type="submit" value="Confirm">
+</form>
+{% else %}
+<p>No iniciaste sesion</p>
+{% endif%}
+{% endblock content %}

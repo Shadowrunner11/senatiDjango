@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1>New post</h1>
+<form  action="" method="post">{% csrf_token %}
+<div class="form-group">
+{{ form.as_p}}
+<input class="form-control bg-primary text-white" type="submit" value="Save">
+</div>
+</form>
+{% else %}
+<p>No iniciaste sesion</p>
+{% endif%}
+{% endblock content %}
