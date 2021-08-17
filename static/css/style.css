@@ -7,6 +7,7 @@ form p {margin: auto; width: 25rem;}
 .btn{display: inline;}
 
 .flex-container{display:flex; flex-direction: row; flex-wrap:wrap ;}
+.flex-container > * {margin-right: 1.2rem;}
 
 @media only screen and (max-width: 600px){
     .flex-container{flex-direction: column;}
